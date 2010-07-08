@@ -1,0 +1,12 @@
+*.pdb
+Release/
+Debug/
+*.obj
+*.ncb
+*.aps
+*.suo
+*.idb
+*.exe
+*.user
+*.svn
+*.tmp
