@@ -20,6 +20,9 @@ namespace multiplayertriangle
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Ship redShip;
+        Ship greenShip;
+
 
         public Game1()
         {
@@ -36,11 +39,13 @@ namespace multiplayertriangle
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            redShip = new Ship(this,graphics);
+            redShip.LoadContent(Content, "RedTriangle");
 
             base.Initialize();
         }
 
-        /// <summary>
+        /// <summary>   
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
@@ -48,6 +53,8 @@ namespace multiplayertriangle
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+           
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -73,9 +80,14 @@ namespace multiplayertriangle
                 this.Exit();
 
             // TODO: Add your update logic here
+            // Move the sprite around.
+            redShip.Update(gameTime);
+
 
             base.Update(gameTime);
         }
+
+
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -84,8 +96,11 @@ namespace multiplayertriangle
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            redShip.Draw(gameTime);
 
-            // TODO: Add your drawing code here
+            // Draw the sprite.
+             
+
 
             base.Draw(gameTime);
         }
