@@ -14,6 +14,9 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace multiplayertriangle
 {
+
+       
+    
     class Ship
     {
         SpriteBatch spriteBatch;
@@ -31,15 +34,13 @@ namespace multiplayertriangle
         GraphicsDeviceManager graphics;
 
 
-        public Ship(Game game, GraphicsDeviceManager graphics)
+        public Ship(Game game, GraphicsDeviceManager graphics, Vector2 spritePosition)
         {
 
             this.graphics = graphics;
             this.game = game;
-            MaxX = graphics.GraphicsDevice.Viewport.Width - myTexture.Width;
-            MinX = 0;
-            MaxY = graphics.GraphicsDevice.Viewport.Height - myTexture.Height;
-            MinY = 0;
+            this.spritePosition = spritePosition;
+
 
             
         }
@@ -52,18 +53,37 @@ namespace multiplayertriangle
 
         }
 
+        public void MoveLeft()
+        {
+            spritePosition.X--;
+        }
+
+        public void MoveRight()
+        {
+            spritePosition.X++;
+        }
+
+        public void MoveUp()
+        {
+            spritePosition.Y--;
+        }
+
+        public void MoveDown()
+        {
+            spritePosition.Y++;
+        }
+
+
         public void Update(GameTime gameTime)
         {
             // Move the sprite by speed, scaled by elapsed time.
             spritePosition +=
                 spriteSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            int MaxX =
-                graphics.GraphicsDevice.Viewport.Width - myTexture.Width;
-            int MinX = 0;
-            int MaxY =
-                graphics.GraphicsDevice.Viewport.Height - myTexture.Height;
-            int MinY = 0;
+            MaxX = graphics.GraphicsDevice.Viewport.Width - myTexture.Width;
+            MinX = 0;
+            MaxY = graphics.GraphicsDevice.Viewport.Height - myTexture.Height;
+            MinY = 0;
 
             // Check for bounce.
             if (spritePosition.X > MaxX)

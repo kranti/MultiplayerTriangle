@@ -10,4 +10,4 @@ Debug/
 *.user
 *.svn
 *.tmp
-*.cache
+*.cachefile
