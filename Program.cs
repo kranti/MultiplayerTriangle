@@ -1,6 +1,6 @@
 using System;
 
-namespace multiplayertriangle
+namespace multiplayerships
 {
     static class Program
     {

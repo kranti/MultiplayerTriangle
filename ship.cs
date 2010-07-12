@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;  
 
-namespace multiplayertriangle
+namespace multiplayerships
 {
 
        
