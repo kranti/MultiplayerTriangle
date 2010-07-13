@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using System.Threading;
 
 namespace multiplayerships
 {
@@ -40,7 +41,14 @@ namespace multiplayerships
             greenShip = new Ship(this, graphics,position);
             greenShip.LoadContent(Content, "GreenTriangle");
 
+            AutoResetEvent autoEvent = new AutoResetEvent(false);
             keyboardInputHandler = new KeyboardInputHandler();
+            //TimerCallback tcb = keyboardInputHandler.WriteBuffer;
+            //Timer keyboardTimer = new Timer(tcb, autoEvent, 1000, 250);
+
+           
+
+
 
             base.Initialize();
         }
@@ -66,7 +74,8 @@ namespace multiplayerships
                 this.Exit();
             }
 
-            keyboardInputHandler.WriteBuffer();
+            object o = null;
+            //keyboardInputHandler.WriteBuffer(o);
             Keys key = keyboardInputHandler.ReadBuffer();
 
             switch (key)
@@ -98,7 +107,6 @@ namespace multiplayerships
                 default:
                     break;
             }
-
 
             base.Update(gameTime);
         }
